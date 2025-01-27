@@ -1,14 +1,22 @@
 #include "udp_receiver.h"
+#include <QThread>
 #include "absl/status/statusor.h"
 #include "glog/logging.h"
 #include "plot_data_model.h"
 
 namespace qt_visualizer {
 
+std::unique_ptr<UdpReceiver> UdpReceiver::Create(
+    qt_visualizer::PlotDataModel* model, quint16 port) {
+  auto receiver = std::unique_ptr<UdpReceiver>(new UdpReceiver(model, port));
+  return receiver;
+}
+
 UdpReceiver::UdpReceiver(PlotDataModel* model, quint16 port)
     : model_(model), socket_(std::make_unique<QUdpSocket>()) {}
 
 absl::Status UdpReceiver::InitSocket(quint16 port) {
+  socket_->moveToThread(QThread::currentThread());
   if (!socket_->bind(QHostAddress::LocalHost, port)) {
     return absl::InternalError("Failed to bind UDP socket to port " +
                                std::to_string(port));
@@ -18,18 +26,8 @@ absl::Status UdpReceiver::InitSocket(quint16 port) {
   return absl::OkStatus();
 }
 
-std::unique_ptr<UdpReceiver> UdpReceiver::Create(
-    qt_visualizer::PlotDataModel* model, quint16 port) {
-  auto receiver = std::unique_ptr<UdpReceiver>(new UdpReceiver(model, port));
-  absl::Status status = receiver->InitSocket(port);
-  if (!status.ok()) {
-    LOG(ERROR) << "Fail to init socket at " << port;
-    return nullptr;
-  }
-  return receiver;
-}
-
 void UdpReceiver::HandleData() {
+  LOG(INFO) << "Received data";
   while (socket_->hasPendingDatagrams()) {
     QByteArray buffer;
     buffer.resize(socket_->pendingDatagramSize());
