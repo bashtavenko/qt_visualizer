@@ -1,15 +1,26 @@
 // Smoke testing the server by directly calling it
 #include <arpa/inet.h>
 #include <sys/socket.h>
+#include <fstream>
+#include <iostream>
+#include "absl/flags/flag.h"
+#include "absl/flags/parse.h"
 #include "absl/status/status.h"
 #include "absl/strings/str_format.h"
 #include "gflags/gflags.h"
 #include "glog/logging.h"
+#include "proto/scan_response.pb.h"
 
 constexpr char kMachine[] = "127.0.0.1";
 constexpr int32_t kPort = 9000;
 
+ABSL_FLAG(std::string, data_path, "/tmp/lidar.txtpb",
+          "Lidar data in proto text format");
+
 absl::Status Run() {
+  using slam_dunk::proto::ScanItem;
+  using slam_dunk::proto::ScanResponse;
+
   int32_t sockfd = socket(AF_INET, SOCK_DGRAM, 0);
   if (sockfd < 0) return absl::InternalError("Failed to create socket");
 
@@ -24,22 +35,29 @@ absl::Status Run() {
         "Invalid address format %s:%i. Result: %i", kMachine, kPort, result));
   }
 
-  const char* message = "Test message";
+  std::ifstream file(absl::GetFlag(FLAGS_data_path));
+  std::string data((std::istreambuf_iterator<char>(file)),
+                   std::istreambuf_iterator<char>());
+  if (data.empty()) {
+    return absl::InternalError("Failed to open data file " +
+                               absl::GetFlag(FLAGS_data_path));
+  }
+
   ssize_t sent_bytes =
-      sendto(sockfd, message, strlen(message), 0,
+      sendto(sockfd, data.c_str(), data.size(), 0,
              (struct sockaddr*)&server_addr, sizeof(server_addr));
   if (sent_bytes < 0) {
     close(sockfd);
     return absl::InternalError("Failed to send message.");
   }
 
-  LOG(INFO) << "Message sent";
+  LOG(INFO) << "Message sent with length of bytes: " << sent_bytes;
   return absl::OkStatus();
 }
 
 int main(int argc, char** argv) {
   google::InitGoogleLogging(argv[0]);
-  gflags::ParseCommandLineFlags(&argc, &argv, /*remove_flags=*/true);
+  absl::ParseCommandLine(argc, argv);
   FLAGS_alsologtostderr = 1;
   FLAGS_colorlogtostdout = 1;
   auto run_status = Run();

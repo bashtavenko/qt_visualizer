@@ -29,7 +29,7 @@ Item {
         ValueAxis {
             id: axisRadial
             min: 0
-            max: 1
+            max: 5000
             labelFormat: "%.1f"
 
         }

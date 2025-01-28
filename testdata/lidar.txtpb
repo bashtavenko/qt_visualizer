@@ -1,0 +1,726 @@
+items {
+  theta: 71
+  distance_mm: 6267
+  quality: 60
+}
+items {
+  theta: 318
+  distance_mm: 6247
+  quality: 48
+}
+items {
+  theta: 2420
+  distance_mm: 2724
+  quality: 44
+}
+items {
+  theta: 3310
+  distance_mm: 1978
+  quality: 60
+}
+items {
+  theta: 3561
+  distance_mm: 1970
+  quality: 60
+}
+items {
+  theta: 3780
+  distance_mm: 1963
+  quality: 60
+}
+items {
+  theta: 4590
+  distance_mm: 1601
+  quality: 60
+}
+items {
+  theta: 4892
+  distance_mm: 1618
+  quality: 60
+}
+items {
+  theta: 5111
+  distance_mm: 1609
+  quality: 60
+}
+items {
+  theta: 5321
+  distance_mm: 1601
+  quality: 60
+}
+items {
+  theta: 5549
+  distance_mm: 1631
+  quality: 60
+}
+items {
+  theta: 6027
+  distance_mm: 1603
+  quality: 60
+}
+items {
+  theta: 6499
+  distance_mm: 1609
+  quality: 60
+}
+items {
+  theta: 6761
+  distance_mm: 1613
+  quality: 60
+}
+items {
+  theta: 7603
+  distance_mm: 15546
+  quality: 60
+}
+items {
+  theta: 7839
+  distance_mm: 15489
+  quality: 60
+}
+items {
+  theta: 8081
+  distance_mm: 15517
+  quality: 60
+}
+items {
+  theta: 9870
+  distance_mm: 5612
+  quality: 60
+}
+items {
+  theta: 12103
+  distance_mm: 4047
+  quality: 60
+}
+items {
+  theta: 12347
+  distance_mm: 3931
+  quality: 60
+}
+items {
+  theta: 12828
+  distance_mm: 3714
+  quality: 60
+}
+items {
+  theta: 13081
+  distance_mm: 3625
+  quality: 60
+}
+items {
+  theta: 13331
+  distance_mm: 3542
+  quality: 60
+}
+items {
+  theta: 13573
+  distance_mm: 3461
+  quality: 60
+}
+items {
+  theta: 13801
+  distance_mm: 3386
+  quality: 60
+}
+items {
+  theta: 14062
+  distance_mm: 3320
+  quality: 60
+}
+items {
+  theta: 14313
+  distance_mm: 3260
+  quality: 60
+}
+items {
+  theta: 14557
+  distance_mm: 3202
+  quality: 60
+}
+items {
+  theta: 14805
+  distance_mm: 3143
+  quality: 60
+}
+items {
+  theta: 15015
+  distance_mm: 3090
+  quality: 60
+}
+items {
+  theta: 15291
+  distance_mm: 3041
+  quality: 60
+}
+items {
+  theta: 15519
+  distance_mm: 2994
+  quality: 60
+}
+items {
+  theta: 15778
+  distance_mm: 2952
+  quality: 60
+}
+items {
+  theta: 16008
+  distance_mm: 2912
+  quality: 60
+}
+items {
+  theta: 16244
+  distance_mm: 2871
+  quality: 60
+}
+items {
+  theta: 16475
+  distance_mm: 2836
+  quality: 60
+}
+items {
+  theta: 16719
+  distance_mm: 2808
+  quality: 60
+}
+items {
+  theta: 16955
+  distance_mm: 2777
+  quality: 60
+}
+items {
+  theta: 17203
+  distance_mm: 2747
+  quality: 60
+}
+items {
+  theta: 17442
+  distance_mm: 2722
+  quality: 60
+}
+items {
+  theta: 17686
+  distance_mm: 2700
+  quality: 60
+}
+items {
+  theta: 17939
+  distance_mm: 2682
+  quality: 60
+}
+items {
+  theta: 18167
+  distance_mm: 2664
+  quality: 60
+}
+items {
+  theta: 18426
+  distance_mm: 2643
+  quality: 60
+}
+items {
+  theta: 18653
+  distance_mm: 2623
+  quality: 60
+}
+items {
+  theta: 18898
+  distance_mm: 2604
+  quality: 60
+}
+items {
+  theta: 19126
+  distance_mm: 2589
+  quality: 60
+}
+items {
+  theta: 19384
+  distance_mm: 2575
+  quality: 60
+}
+items {
+  theta: 19632
+  distance_mm: 2559
+  quality: 60
+}
+items {
+  theta: 19891
+  distance_mm: 2548
+  quality: 60
+}
+items {
+  theta: 20130
+  distance_mm: 2538
+  quality: 60
+}
+items {
+  theta: 20337
+  distance_mm: 2529
+  quality: 60
+}
+items {
+  theta: 20596
+  distance_mm: 2521
+  quality: 60
+}
+items {
+  theta: 20841
+  distance_mm: 2514
+  quality: 60
+}
+items {
+  theta: 21065
+  distance_mm: 2512
+  quality: 60
+}
+items {
+  theta: 21802
+  distance_mm: 2511
+  quality: 60
+}
+items {
+  theta: 22013
+  distance_mm: 2512
+  quality: 60
+}
+items {
+  theta: 22243
+  distance_mm: 2514
+  quality: 60
+}
+items {
+  theta: 22516
+  distance_mm: 2508
+  quality: 60
+}
+items {
+  theta: 23105
+  distance_mm: 1867
+  quality: 60
+}
+items {
+  theta: 23665
+  distance_mm: 2560
+  quality: 60
+}
+items {
+  theta: 23913
+  distance_mm: 2568
+  quality: 60
+}
+items {
+  theta: 24143
+  distance_mm: 2581
+  quality: 60
+}
+items {
+  theta: 24388
+  distance_mm: 2597
+  quality: 60
+}
+items {
+  theta: 25105
+  distance_mm: 2614
+  quality: 60
+}
+items {
+  theta: 25349
+  distance_mm: 2609
+  quality: 60
+}
+items {
+  theta: 25568
+  distance_mm: 2620
+  quality: 60
+}
+items {
+  theta: 25816
+  distance_mm: 2666
+  quality: 60
+}
+items {
+  theta: 26052
+  distance_mm: 2695
+  quality: 60
+}
+items {
+  theta: 26282
+  distance_mm: 2713
+  quality: 60
+}
+items {
+  theta: 32295
+  distance_mm: 1254
+  quality: 60
+}
+items {
+  theta: 36246
+  distance_mm: 3260
+  quality: 60
+}
+items {
+  theta: 36465
+  distance_mm: 3248
+  quality: 60
+}
+items {
+  theta: 36707
+  distance_mm: 3232
+  quality: 60
+}
+items {
+  theta: 36952
+  distance_mm: 3226
+  quality: 60
+}
+items {
+  theta: 37179
+  distance_mm: 3219
+  quality: 60
+}
+items {
+  theta: 37427
+  distance_mm: 3213
+  quality: 60
+}
+items {
+  theta: 37671
+  distance_mm: 3212
+  quality: 60
+}
+items {
+  theta: 37907
+  distance_mm: 3213
+  quality: 60
+}
+items {
+  theta: 38155
+  distance_mm: 3214
+  quality: 60
+}
+items {
+  theta: 38382
+  distance_mm: 3216
+  quality: 60
+}
+items {
+  theta: 38619
+  distance_mm: 3220
+  quality: 60
+}
+items {
+  theta: 38846
+  distance_mm: 3226
+  quality: 60
+}
+items {
+  theta: 39099
+  distance_mm: 3234
+  quality: 60
+}
+items {
+  theta: 39341
+  distance_mm: 3245
+  quality: 60
+}
+items {
+  theta: 39577
+  distance_mm: 3261
+  quality: 60
+}
+items {
+  theta: 39805
+  distance_mm: 3280
+  quality: 60
+}
+items {
+  theta: 40049
+  distance_mm: 3292
+  quality: 60
+}
+items {
+  theta: 40268
+  distance_mm: 3303
+  quality: 60
+}
+items {
+  theta: 40513
+  distance_mm: 3319
+  quality: 60
+}
+items {
+  theta: 40749
+  distance_mm: 3344
+  quality: 60
+}
+items {
+  theta: 40991
+  distance_mm: 3367
+  quality: 60
+}
+items {
+  theta: 41233
+  distance_mm: 3386
+  quality: 60
+}
+items {
+  theta: 41469
+  distance_mm: 3414
+  quality: 60
+}
+items {
+  theta: 41693
+  distance_mm: 3449
+  quality: 60
+}
+items {
+  theta: 41918
+  distance_mm: 3476
+  quality: 60
+}
+items {
+  theta: 42157
+  distance_mm: 3506
+  quality: 60
+}
+items {
+  theta: 42407
+  distance_mm: 3547
+  quality: 60
+}
+items {
+  theta: 42649
+  distance_mm: 3579
+  quality: 60
+}
+items {
+  theta: 42877
+  distance_mm: 3611
+  quality: 60
+}
+items {
+  theta: 43121
+  distance_mm: 3659
+  quality: 60
+}
+items {
+  theta: 43340
+  distance_mm: 3706
+  quality: 60
+}
+items {
+  theta: 43579
+  distance_mm: 3754
+  quality: 60
+}
+items {
+  theta: 43818
+  distance_mm: 3807
+  quality: 60
+}
+items {
+  theta: 44043
+  distance_mm: 3867
+  quality: 60
+}
+items {
+  theta: 44288
+  distance_mm: 3933
+  quality: 60
+}
+items {
+  theta: 44515
+  distance_mm: 3992
+  quality: 60
+}
+items {
+  theta: 45195
+  distance_mm: 2313
+  quality: 40
+}
+items {
+  theta: 45414
+  distance_mm: 2294
+  quality: 60
+}
+items {
+  theta: 46620
+  distance_mm: 4797
+  quality: 60
+}
+items {
+  theta: 47189
+  distance_mm: 3256
+  quality: 60
+}
+items {
+  theta: 47439
+  distance_mm: 3238
+  quality: 40
+}
+items {
+  theta: 49723
+  distance_mm: 742
+  quality: 60
+}
+items {
+  theta: 49962
+  distance_mm: 738
+  quality: 60
+}
+items {
+  theta: 50201
+  distance_mm: 738
+  quality: 60
+}
+items {
+  theta: 50440
+  distance_mm: 735
+  quality: 60
+}
+items {
+  theta: 50676
+  distance_mm: 731
+  quality: 60
+}
+items {
+  theta: 52104
+  distance_mm: 761
+  quality: 60
+}
+items {
+  theta: 52252
+  distance_mm: 769
+  quality: 60
+}
+items {
+  theta: 54183
+  distance_mm: 2547
+  quality: 52
+}
+items {
+  theta: 56593
+  distance_mm: 2524
+  quality: 60
+}
+items {
+  theta: 56874
+  distance_mm: 2461
+  quality: 60
+}
+items {
+  theta: 57090
+  distance_mm: 2435
+  quality: 60
+}
+items {
+  theta: 57358
+  distance_mm: 2418
+  quality: 60
+}
+items {
+  theta: 57585
+  distance_mm: 2395
+  quality: 60
+}
+items {
+  theta: 57813
+  distance_mm: 2381
+  quality: 60
+}
+items {
+  theta: 58060
+  distance_mm: 2375
+  quality: 60
+}
+items {
+  theta: 58313
+  distance_mm: 2376
+  quality: 60
+}
+items {
+  theta: 58547
+  distance_mm: 2371
+  quality: 60
+}
+items {
+  theta: 58771
+  distance_mm: 2372
+  quality: 60
+}
+items {
+  theta: 59013
+  distance_mm: 2384
+  quality: 60
+}
+items {
+  theta: 59266
+  distance_mm: 2394
+  quality: 60
+}
+items {
+  theta: 59502
+  distance_mm: 2403
+  quality: 60
+}
+items {
+  theta: 59747
+  distance_mm: 2420
+  quality: 60
+}
+items {
+  theta: 61758
+  distance_mm: 12688
+  quality: 60
+}
+items {
+  theta: 62981
+  distance_mm: 10048
+  quality: 60
+}
+items {
+  theta: 63209
+  distance_mm: 9891
+  quality: 60
+}
+items {
+  theta: 63456
+  distance_mm: 9720
+  quality: 60
+}
+items {
+  theta: 63698
+  distance_mm: 9521
+  quality: 60
+}
+items {
+  theta: 63889
+  distance_mm: 9370
+  quality: 60
+  flag: 1
+}
+items {
+  theta: 64401
+  distance_mm: 6619
+  quality: 60
+}
+items {
+  theta: 64642
+  distance_mm: 6549
+  quality: 60
+}
+items {
+  theta: 64890
+  distance_mm: 6464
+  quality: 60
+}
+items {
+  theta: 65132
+  distance_mm: 6381
+  quality: 60
+}
+items {
+  theta: 65373
+  distance_mm: 6323
+  quality: 60
+}
