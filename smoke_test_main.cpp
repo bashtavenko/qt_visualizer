@@ -8,7 +8,6 @@
 #include "absl/flags/parse.h"
 #include "absl/status/status.h"
 #include "absl/strings/str_format.h"
-#include "gflags/gflags.h"
 #include "glog/logging.h"
 
 constexpr char kMachine[] = "127.0.0.1";
