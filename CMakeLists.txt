@@ -100,7 +100,5 @@ target_link_libraries(smoke_test_main PRIVATE
         absl::flags_parse
         absl::status
         glog::glog
-        gflags
-        proto
-        ${Protobuf_LIBRARIES}
+        gflags}
 )

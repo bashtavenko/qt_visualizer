@@ -1,4 +1,5 @@
 // Smoke testing the server by directly calling it
+// ./cmake-build-debug/smoke_test_main --data_path=testdata/lidar.txtpb
 #include <arpa/inet.h>
 #include <sys/socket.h>
 #include <fstream>
@@ -9,18 +10,14 @@
 #include "absl/strings/str_format.h"
 #include "gflags/gflags.h"
 #include "glog/logging.h"
-#include "proto/scan_response.pb.h"
 
 constexpr char kMachine[] = "127.0.0.1";
 constexpr int32_t kPort = 9000;
 
-ABSL_FLAG(std::string, data_path, "/tmp/lidar.txtpb",
+ABSL_FLAG(std::string, data_path, "testdata/lidar.txtpb",
           "Lidar data in proto text format");
 
 absl::Status Run() {
-  using slam_dunk::proto::ScanItem;
-  using slam_dunk::proto::ScanResponse;
-
   int32_t sockfd = socket(AF_INET, SOCK_DGRAM, 0);
   if (sockfd < 0) return absl::InternalError("Failed to create socket");
 
@@ -42,7 +39,6 @@ absl::Status Run() {
     return absl::InternalError("Failed to open data file " +
                                absl::GetFlag(FLAGS_data_path));
   }
-
   ssize_t sent_bytes =
       sendto(sockfd, data.c_str(), data.size(), 0,
              (struct sockaddr*)&server_addr, sizeof(server_addr));
@@ -50,7 +46,6 @@ absl::Status Run() {
     close(sockfd);
     return absl::InternalError("Failed to send message.");
   }
-
   LOG(INFO) << "Message sent with length of bytes: " << sent_bytes;
   return absl::OkStatus();
 }
