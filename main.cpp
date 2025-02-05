@@ -1,3 +1,5 @@
+//  Server
+//  ./cmake-build-debug/qt_visualizer
 #include <QThread>
 #include <QtCore/QTimer>
 #include <QtQuick/QQuickView>

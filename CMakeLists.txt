@@ -15,7 +15,7 @@ include(FetchContent)
 FetchContent_Declare(
         abseil
         GIT_REPOSITORY https://github.com/abseil/abseil-cpp.git
-        GIT_TAG        20240722.1
+        GIT_TAG 20240722.1
 )
 FetchContent_MakeAvailable(abseil)
 
@@ -30,7 +30,7 @@ FetchContent_MakeAvailable(googletest)
 FetchContent_Declare(
         gflags
         GIT_REPOSITORY https://github.com/gflags/gflags.git
-        GIT_TAG        v2.2.2
+        GIT_TAG v2.2.2
 )
 FetchContent_MakeAvailable(gflags)
 
@@ -38,7 +38,7 @@ FetchContent_MakeAvailable(gflags)
 FetchContent_Declare(
         glog
         GIT_REPOSITORY https://github.com/google/glog.git
-        GIT_TAG        v0.7.1
+        GIT_TAG v0.7.1
 )
 FetchContent_MakeAvailable(glog)
 
@@ -59,7 +59,6 @@ add_executable(qt_visualizer
         main.cpp resources.qrc
         plot_data_model.cpp plot_data_model.h
         udp_receiver.cpp udp_receiver.h
-        test_main.cpp
 )
 
 target_link_libraries(qt_visualizer PRIVATE
@@ -77,19 +76,32 @@ target_link_libraries(qt_visualizer PRIVATE
         GTest::gtest
         GTest::gtest_main
         proto
+        proto_utils
         ${Protobuf_LIBRARIES}
 )
 
+add_library(proto_utils
+        proto_utils.h
+        proto_utils.cpp
+)
+target_link_libraries(proto_utils
+        proto
+        absl::statusor
+        absl::strings
+        ${Protobuf_LIBRARIES}
+)
 # Test runner
-add_executable(test_runner test_main.cpp)
+enable_testing()
+add_executable(test_runner proto_utils_test.cpp)
 target_link_libraries(test_runner PRIVATE
         GTest::gtest_main
-        glog::glog
-        gflags
-        absl::base
+        GTest::gtest
+        GTest::gmock
+        glog
+        proto_utils
+        absl::status
 )
-
-add_test(NAME ExampleTest COMMAND test_runner)
+add_test(NAME test_runner COMMAND test_runner)
 
 # Smoke Test
 add_executable(smoke_test_main smoke_test_main.cpp)
@@ -100,4 +112,5 @@ target_link_libraries(smoke_test_main PRIVATE
         absl::flags_parse
         absl::status
         glog::glog
+        proto_utils
 )

@@ -9,6 +9,7 @@
 #include "absl/status/status.h"
 #include "absl/strings/str_format.h"
 #include "glog/logging.h"
+#include "proto_utils.h"
 
 constexpr char kMachine[] = "127.0.0.1";
 constexpr int32_t kPort = 9000;
@@ -17,8 +18,8 @@ ABSL_FLAG(std::string, data_path, "testdata/lidar.txtpb",
           "Lidar data in proto text format");
 
 absl::Status Run() {
-  int32_t sockfd = socket(AF_INET, SOCK_DGRAM, 0);
-  if (sockfd < 0) return absl::InternalError("Failed to create socket");
+  int32_t socket_id = socket(AF_INET, SOCK_DGRAM, 0);
+  if (socket_id < 0) return absl::InternalError("Failed to create socket");
 
   struct sockaddr_in server_addr{};
   server_addr.sin_family = AF_INET;
@@ -26,23 +27,21 @@ absl::Status Run() {
 
   int32_t result = inet_pton(AF_INET, kMachine, &server_addr.sin_addr);
   if (result <= 0) {
-    close(sockfd);
+    close(socket_id);
     return absl::InternalError(absl::StrFormat(
         "Invalid address format %s:%i. Result: %i", kMachine, kPort, result));
   }
 
-  std::ifstream file(absl::GetFlag(FLAGS_data_path));
-  std::string data((std::istreambuf_iterator<char>(file)),
-                   std::istreambuf_iterator<char>());
-  if (data.empty()) {
+  auto data = qt_visualizer::GetTextFromFile(absl::GetFlag(FLAGS_data_path));
+  if (!data.ok()) {
     return absl::InternalError("Failed to open data file " +
                                absl::GetFlag(FLAGS_data_path));
   }
   ssize_t sent_bytes =
-      sendto(sockfd, data.c_str(), data.size(), 0,
+      sendto(socket_id, data.value().c_str(), data.value().size(), 0,
              (struct sockaddr*)&server_addr, sizeof(server_addr));
   if (sent_bytes < 0) {
-    close(sockfd);
+    close(socket_id);
     return absl::InternalError("Failed to send message.");
   }
   LOG(INFO) << "Message sent with length of bytes: " << sent_bytes;

@@ -1,10 +1,10 @@
 #include "udp_receiver.h"
-#include <google/protobuf/text_format.h>
 #include <QThread>
 #include "absl/status/statusor.h"
 #include "glog/logging.h"
 #include "plot_data_model.h"
 #include "proto/scan_response.pb.h"
+#include "proto_utils.h"
 
 namespace qt_visualizer {
 
@@ -29,19 +29,19 @@ absl::Status UdpReceiver::InitSocket(quint16 port) {
 }
 
 void UdpReceiver::HandleData() {
-  using google::protobuf::TextFormat;
   using slam_dunk::proto::ScanResponse;
   while (socket_->hasPendingDatagrams()) {
     QByteArray buffer;
     buffer.resize(socket_->pendingDatagramSize());
     socket_->readDatagram(buffer.data(), buffer.size());
-    ScanResponse message;
-    if (!TextFormat::ParseFromString(buffer.toStdString(), &message)) {
+    absl::StatusOr<ScanResponse> message =
+        qt_visualizer::ParseProtoFromText(buffer.toStdString());
+    if (!message.ok()) {
       LOG(ERROR) << "Failed to parse proto message";
       return;
     }
     QVariantList points;
-    for (const auto& item : message.items()) {
+    for (const auto& item : message->items()) {
       QVariantMap point;
       point["angle"] = item.theta() * 90 / (1 << 14);
       point["distance"] = item.distance_mm();
