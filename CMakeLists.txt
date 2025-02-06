@@ -58,7 +58,6 @@ include_directories(${Protobuf_INCCLUDE_DIRS})
 add_executable(qt_visualizer
         main.cpp resources.qrc
         plot_data_model.cpp plot_data_model.h
-        udp_receiver.cpp udp_receiver.h
 )
 
 target_link_libraries(qt_visualizer PRIVATE
@@ -77,7 +76,30 @@ target_link_libraries(qt_visualizer PRIVATE
         GTest::gtest_main
         proto
         proto_utils
+        plot_data_model
+        udp_receiver
         ${Protobuf_LIBRARIES}
+)
+
+add_library(plot_data_model
+        plot_data_model.h
+        plot_data_model.cpp
+)
+target_link_libraries(plot_data_model
+        Qt6::Core
+        Qt6::Qml
+)
+
+add_library(udp_receiver
+        udp_receiver.h
+        udp_receiver.cpp
+)
+target_link_libraries(udp_receiver PRIVATE
+        Qt6::Core
+        absl::status
+        plot_data_model
+        glog
+        proto_utils
 )
 
 add_library(proto_utils
@@ -90,15 +112,17 @@ target_link_libraries(proto_utils
         absl::strings
         ${Protobuf_LIBRARIES}
 )
-# Test runner
+# Tests
 enable_testing()
-add_executable(test_runner proto_utils_test.cpp)
+add_executable(test_runner
+        proto_utils_test.cpp)
 target_link_libraries(test_runner PRIVATE
         GTest::gtest_main
         GTest::gtest
         GTest::gmock
         glog
         proto_utils
+        udp_receiver
         absl::status
 )
 add_test(NAME test_runner COMMAND test_runner)

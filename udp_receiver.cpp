@@ -15,7 +15,7 @@ std::unique_ptr<UdpReceiver> UdpReceiver::Create(
 }
 
 UdpReceiver::UdpReceiver(PlotDataModel* model, quint16 port)
-    : model_(model), socket_(std::make_unique<QUdpSocket>()) {}
+    : model_(model), socket_(std::make_unique<QUdpSocket>()), port_(port) {}
 
 absl::Status UdpReceiver::InitSocket(quint16 port) {
   socket_->moveToThread(QThread::currentThread());

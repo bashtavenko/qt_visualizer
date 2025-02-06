@@ -43,7 +43,7 @@ int main(int argc, char* argv[]) {
     if (!receiver->InitSocket().ok()) {
       LOG(ERROR) << "Failed to initialize UDP socket";
     } else {
-      LOG(INFO) << "UDP listener started";
+      LOG(INFO) << "UDP listener started on " << receiver->Port();
     }
   });
   worker_thread.start();

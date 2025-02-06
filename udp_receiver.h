@@ -18,10 +18,12 @@ class UdpReceiver : public QObject {
   absl::Status InitSocket(quint16 port = 9000);
  public slots:
   void HandleData();
+  quint16 Port() const {return port_;}
  private:
   explicit UdpReceiver(PlotDataModel* model, quint16 port);
   std::unique_ptr<QUdpSocket> socket_;
   PlotDataModel* model_;  // owned by a caller
+  const quint16 port_;
 };
 
 }  // namespace qt_visualizer
